@@ -2,6 +2,8 @@
 
 Лендинг конференции **Yandex Pet Day** — digital-продукты в сфере зообизнеса и сервисов для животных.
 
+**Live:** https://yandex-pet-day-opal.vercel.app
+
 ## Стек
 
 - HTML5, CSS3, Vanilla JS
