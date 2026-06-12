@@ -1,30 +1,28 @@
 import { AnimatedSection } from './AnimatedSection';
+import { SpeakerCard } from './SpeakerCard';
 
 const speakers = [
   {
-    initials: 'АС',
     name: 'Андрей Соколов',
     role: 'Head of Product Design, Яндекс',
+    topic: 'Расскажу, как компьютерное зрение меняет ветеринарию',
+    avatar: 'АС',
     tag: 'Ведущий конференции',
-    avatarClass: 'speaker-card__avatar--design',
-    gradientId: 'grad1',
-    stops: ['#fc3f1d', '#ff6b4a'],
+    variant: 'design' as const,
   },
   {
-    initials: 'МП',
     name: 'Мария Подольская',
     role: 'Head of AI, Лаборатория инноваций',
-    avatarClass: 'speaker-card__avatar--ai',
-    gradientId: 'grad2',
-    stops: ['#6c4dff', '#9b7dff'],
+    topic: 'Покажу, почему зооморфизм — не мем, а драйвер удержания',
+    avatar: 'МП',
+    variant: 'ai' as const,
   },
   {
-    initials: 'ПС',
     name: 'Павел Сидоров',
     role: 'CEO, маркетплейс зоотоваров «Зоо\u2011Маркет»',
-    avatarClass: 'speaker-card__avatar--ceo',
-    gradientId: 'grad3',
-    stops: ['#0d9488', '#2dd4bf'],
+    topic: 'Разберу путь от стартапа до маркетплейса №1',
+    avatar: 'ПС',
+    variant: 'ceo' as const,
   },
 ];
 
@@ -38,29 +36,7 @@ export function Speakers() {
         </div>
         <div className="speakers__grid">
           {speakers.map((speaker) => (
-            <article key={speaker.name} className="speaker-card">
-              <div className={`speaker-card__avatar ${speaker.avatarClass}`}>
-                <svg className="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true">
-                  <circle cx="40" cy="40" r="40" fill={`url(#${speaker.gradientId})`} />
-                  <circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)" />
-                  <ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)" />
-                  <text x="40" y="44" textAnchor="middle" fill="white" fontSize="16" fontWeight="700">
-                    {speaker.initials}
-                  </text>
-                  <defs>
-                    <linearGradient id={speaker.gradientId} x1="0" y1="0" x2="80" y2="80">
-                      <stop stopColor={speaker.stops[0]} />
-                      <stop offset="1" stopColor={speaker.stops[1]} />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div className="speaker-card__body">
-                <h3>{speaker.name}</h3>
-                <p className="speaker-card__role">{speaker.role}</p>
-                {speaker.tag && <span className="speaker-card__tag">{speaker.tag}</span>}
-              </div>
-            </article>
+            <SpeakerCard key={speaker.name} {...speaker} />
           ))}
         </div>
       </div>
