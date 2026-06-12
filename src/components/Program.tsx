@@ -6,7 +6,7 @@ export function Program() {
   return (
     <AnimatedSection className="section program" id="program">
       <PetDecor type="cat" className="pet-decor--program-bl" parallax={120} />
-      <PetDecor type="paw" className="pet-decor--program-tr" parallax={180} />
+      <PetDecor type="dog" className="pet-decor--program-tr" parallax={180} />
       <div className="container">
         <div className="section-head">
           <span className="section-label">Программа</span>

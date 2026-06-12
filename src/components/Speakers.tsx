@@ -32,7 +32,7 @@ export function Speakers() {
   return (
     <AnimatedSection className="section speakers" id="speakers">
       <PetDecor type="dog" className="pet-decor--speakers-tr" parallax={160} />
-      <PetDecor type="paw" className="pet-decor--speakers-bl" parallax={100} />
+      <PetDecor type="cat" className="pet-decor--speakers-bl" parallax={100} />
       <div className="container">
         <div className="section-head section-head--center">
           <span className="section-label">Спикеры</span>
