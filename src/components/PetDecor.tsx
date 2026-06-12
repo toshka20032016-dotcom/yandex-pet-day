@@ -1,111 +1,80 @@
-import { useRef, type CSSProperties } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-
-export type PetDecorType = 'dog' | 'cat' | 'paw' | 'bird';
-
-type SilhouetteProps = {
-  paths: string | string[];
-  className?: string;
-  style?: CSSProperties;
-  parallax?: number;
-};
-
-const silhouettes: Record<PetDecorType, string | string[]> = {
-  dog: [
-    'M12 48c0-14 8-24 20-26',
-    'M32 22c0-10 6-18 14-18s14 8 14 18',
-    'M46 18c2-6 8-10 14-8',
-    'M18 18c-2-6-8-10-14-8',
-    'M28 30c-3 0-5 2-5 4s2 4 5 4 5-2 5-4-2-4-5-4z',
-    'M24 48v8M36 48v8',
-    'M20 56h20',
-    'M58 38c4 2 8 8 8 16',
-  ],
-  cat: [
-    'M20 14l-4-12 6 8',
-    'M44 14l4-12-6 8',
-    'M14 48c0-14 8-24 22-24s22 10 22 24',
-    'M26 32c-2 0-3 1-3 3s1 3 3 3 3-1 3-3-1-3-3-3z',
-    'M38 32c-2 0-3 1-3 3s1 3 3 3 3-1 3-3-1-3-3-3z',
-    'M30 40c1 2 3 2 4 0',
-    'M28 48v8M36 48v8',
-    'M24 56h12',
-    'M52 42c3 4 4 10 2 16',
-  ],
-  paw: [
-    'M30 50c0-6 4-10 10-10s10 4 10 10',
-    'M16 30a6 6 0 1 1 0 12 6 6 0 0 1 0-12z',
-    'M30 20a6 6 0 1 1 0 12 6 6 0 0 1 0-12z',
-    'M44 30a6 6 0 1 1 0 12 6 6 0 0 1 0-12z',
-    'M22 38a4 4 0 1 1 0 8 4 4 0 0 1 0-8z',
-    'M38 38a4 4 0 1 1 0 8 4 4 0 0 1 0-8z',
-  ],
-  bird: [
-    'M10 32c8-12 24-12 32 0',
-    'M42 32c6-2 10 2 10 8-2 4-8 6-14 4',
-    'M22 28a2 2 0 1 1 0 4 2 2 0 0 1 0-4z',
-    'M18 34l-4 2',
-    'M26 40v6M34 40v6',
-  ],
-};
-
-export function Silhouette({ paths, className = '', style, parallax = 140 }: SilhouetteProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, parallax]);
-  const pathList = Array.isArray(paths) ? paths : [paths];
-
-  return (
-    <motion.div
-      ref={ref}
-      className={`pet-decor ${className}`.trim()}
-      style={{ ...style, ...(parallax ? { y } : {}) }}
-      aria-hidden="true"
-    >
-      <motion.svg
-        className="pet-decor__silhouette"
-        viewBox="0 0 60 60"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        animate={{ scale: [1, 1.02, 1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        {pathList.map((d) => (
-          <path key={d} d={d} />
-        ))}
-      </motion.svg>
-    </motion.div>
-  );
-}
-
-type PetDecorProps = {
-  type: PetDecorType;
-  className?: string;
-  style?: CSSProperties;
-  parallax?: number;
-};
-
-export function PetDecor({ type, className = '', style, parallax }: PetDecorProps) {
-  return (
-    <Silhouette
-      paths={silhouettes[type]}
-      className={`pet-decor--${type}${className ? ` ${className}` : ''}`}
-      style={style}
-      parallax={parallax}
-    />
-  );
-}
-
-export function PetDecorLayer() {
-  return (
-    <div className="pet-decor-layer" aria-hidden="true">
-      <PetDecor type="paw" className="pet-decor--hero-tr" parallax={80} />
-    </div>
-  );
-}
+import { useRef, type CSSProperties } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+export type PetDecorType = 'dog' | 'cat';
+
+type SilhouetteProps = {
+  paths: string | string[];
+  className?: string;
+  style?: CSSProperties;
+  parallax?: number;
+};
+
+/** Monoline stroke silhouettes — cat & dog only */
+const silhouettes: Record<PetDecorType, string | string[]> = {
+  dog: [
+    'M18,72 C14,58 16,44 26,38 C30,35 32,30 34,24 C36,18 42,16 46,20 C48,22 50,28 54,30 C62,34 70,42 72,52 C74,62 70,72 60,76 C48,80 36,78 28,74 C22,72 20,74 18,72',
+    'M34,24 C32,18 28,14 24,16',
+    'M46,20 C50,14 56,12 58,18',
+    'M72,52 C78,48 82,52 80,58',
+  ],
+  cat: [
+    'M22,74 C18,60 20,46 32,40 C36,38 38,34 40,28 C42,22 48,20 52,24 C54,26 56,32 60,34 C68,38 74,46 76,56 C78,66 72,74 62,78 C50,82 38,80 28,76 C24,74 22,76 22,74',
+    'M40,28 L36,16 L42,22',
+    'M52,24 L58,14 L54,22',
+    'M76,56 C82,50 86,54 84,62 C82,68 76,70 74,66',
+  ],
+};
+
+export function Silhouette({ paths, className = '', parallax = 140 }: SilhouetteProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, parallax]);
+  const pathList = Array.isArray(paths) ? paths : [paths];
+
+  return (
+    <motion.div ref={ref} className={`pet-decor ${className}`.trim()} style={{ y }} aria-hidden="true">
+      <svg
+        className="pet-decor__silhouette pet-decor__stroke"
+        viewBox="0 0 100 100"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {pathList.map((d) => (
+          <path key={d} d={d} />
+        ))}
+      </svg>
+    </motion.div>
+  );
+}
+
+type PetDecorProps = {
+  type: PetDecorType;
+  className?: string;
+  parallax?: number;
+};
+
+export function PetDecor({ type, className = '', parallax }: PetDecorProps) {
+  return (
+    <Silhouette
+      paths={silhouettes[type]}
+      className={className}
+      parallax={parallax}
+    />
+  );
+}
+
+export function PetDecorLayer() {
+  return (
+    <div className="pet-decor-layer" aria-hidden="true">
+      <PetDecor type="cat" className="pet-decor--hero-tr" parallax={80} />
+      <PetDecor type="dog" className="pet-decor--hero-bl" parallax={60} />
+    </div>
+  );
+}

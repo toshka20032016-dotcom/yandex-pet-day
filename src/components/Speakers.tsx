@@ -31,8 +31,8 @@ const speakers = [
 export function Speakers() {
   return (
     <AnimatedSection className="section speakers" id="speakers">
-      <PetDecor type="cat" className="pet-decor--speakers-tl" parallax={160} />
-      <PetDecor type="bird" className="pet-decor--speakers-br" parallax={100} />
+      <PetDecor type="dog" className="pet-decor--speakers-tr" parallax={160} />
+      <PetDecor type="cat" className="pet-decor--speakers-bl" parallax={100} />
       <div className="container">
         <div className="section-head section-head--center">
           <span className="section-label">Спикеры</span>
