@@ -6,26 +6,39 @@
 
 ## Стек
 
-- HTML5, CSS3, Vanilla JS
+- React 19 + TypeScript
+- Vite 7
+- Framer Motion (scroll-анимации, timeline, форма)
 - Деплой: [Vercel](https://vercel.com)
 - Шрифт: [Onest](https://fonts.google.com/specimen/Onest) (альтернатива Yandex Sans Text)
 
 ## Структура
 
 ```
-├── index.html          # Главная страница
-├── css/style.css       # Стили + design tokens
-├── js/app.js           # Интерактив (меню, FAQ, формы, модалка)
-├── figma/              # Design spec для Figma
-└── vercel.json         # Конфиг Vercel
+├── index.html              # Vite entry
+├── src/
+│   ├── App.tsx             # Корневой компонент
+│   ├── style.css           # Стили + design tokens
+│   └── components/         # Секции лендинга
+├── figma/                  # Design spec для Figma
+├── vite.config.ts
+└── vercel.json             # Конфиг Vercel
 ```
 
-## Локальный просмотр
-
-Откройте `index.html` в браузере или используйте любой static server:
+## Локальная разработка
 
 ```bash
-npx serve .
+npm install
+npm run dev
+```
+
+Откройте http://localhost:5173
+
+Сборка для production:
+
+```bash
+npm run build
+npm run preview
 ```
 
 ## Секции
@@ -33,9 +46,9 @@ npx serve .
 - Hero с датой, временем и CTA
 - «Вы сможете» — 4 карточки преимуществ
 - Спикеры
-- Программа (timeline)
+- Программа (timeline с staggered-анимацией)
 - Локация
-- Форма регистрации (офлайн/онлайн)
+- Форма регистрации (офлайн/онлайн, динамические подсказки)
 - FAQ + модалка «Остались вопросы»
 - Footer
 
