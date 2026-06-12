@@ -1,16 +1,17 @@
 import { useState, type FormEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
+import { AppIcon, type IconName } from './ui/Icon';
 
 type Format = 'offline' | 'online' | null;
 
-const FORMAT_HINTS: Record<'offline' | 'online', { icon: string; text: string }> = {
+const FORMAT_HINTS: Record<'offline' | 'online', { icon: IconName; text: string }> = {
   offline: {
-    icon: '📍',
+    icon: 'mapPin',
     text: 'Офлайн-участие: приходите в «Академию» на Ленинградском проспекте. Можно взять питомца — предупредите при регистрации. После программы — закрытый бизнес-завтрак.',
   },
   online: {
-    icon: '💻',
+    icon: 'laptop',
     text: 'Онлайн-участие: ссылка на трансляцию придёт на почту за день до события. Запись, презентации и расшифровки — в личном кабинете через 3 дня после конференции.',
   },
 };
@@ -94,7 +95,7 @@ export function RegisterForm() {
                 />
                 <span className="format-option__box">
                   <span className="format-option__icon" aria-hidden="true">
-                    📍
+                    <AppIcon name="mapPin" className="format-option__icon-svg" />
                   </span>
                   <strong>Офлайн</strong>
                   <small className="format-option__label">Москва, «Академия»</small>
@@ -110,7 +111,7 @@ export function RegisterForm() {
                 />
                 <span className="format-option__box">
                   <span className="format-option__icon" aria-hidden="true">
-                    💻
+                    <AppIcon name="laptop" className="format-option__icon-svg" />
                   </span>
                   <strong>Онлайн</strong>
                   <small className="format-option__label">Трансляция в прямом эфире</small>
@@ -129,7 +130,7 @@ export function RegisterForm() {
                   transition={{ duration: 0.35, ease: 'easeOut' }}
                 >
                   <span className="format-hint__icon" aria-hidden="true">
-                    {FORMAT_HINTS[format].icon}
+                    <AppIcon name={FORMAT_HINTS[format].icon} className="format-hint__icon-svg" />
                   </span>
                   <p className="format-hint__text">{FORMAT_HINTS[format].text}</p>
                 </motion.div>

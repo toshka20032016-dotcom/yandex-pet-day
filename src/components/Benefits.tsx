@@ -1,54 +1,25 @@
+import { motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
+import { AppIcon, type IconName } from './ui/Icon';
 
-const benefits = [
+const benefits: { icon: IconName; title: string; text: string; highlight?: boolean }[] = [
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="4" y="8" width="24" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M10 14h12M10 18h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: 'format',
     title: 'Выбрать удобный формат участия',
     text: 'Прийти лично или подключиться к онлайн\u2011трансляции из любой точки мира',
   },
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <circle cx="11" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="21" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-        <path
-          d="M5 26c0-4 3-7 6-7s6 3 6 7M15 26c0-4 3-7 6-7s6 3 6 7"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: 'networking',
     title: 'Завязать новые полезные знакомства',
     text: 'На конференции соберутся ключевые представители pet\u2011индустрии, владельцы digital\u2011продуктов, топ\u2011менеджеры технологических компаний и инвесторы',
   },
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M6 24l8-16 6 8 4-6 8 14H6z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: 'analytics',
     title: 'Узнать о трендах и реальных кейсах',
     text: 'Ведущие эксперты рынка на реальных примерах покажут, как внедрение ИИ, работа с лояльностью и новые форматы монетизации приносят рост выручки',
   },
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path
-          d="M8 16l4 4 12-12"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
+    icon: 'growth',
     title: 'Получить практические инструменты для роста',
     text: 'Вы унесёте с собой не только впечатления, но и готовые механики, которые сможете применить в своём продукте',
     highlight: true,
@@ -89,11 +60,24 @@ export function Benefits() {
         </div>
         <div className="benefits__grid">
           {benefits.map((item) => (
-            <article key={item.title} className={`benefit-card${item.highlight ? ' benefit-card--highlight' : ''}`}>
-              <div className="benefit-card__icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
+            <motion.article
+              key={item.title}
+              className={`benefit-card${item.highlight ? ' benefit-card--highlight' : ''}`}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                className="benefit-card__icon"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <AppIcon name={item.icon} className="benefit-card__icon-svg" />
+              </motion.div>
+              <div className="benefit-card__content">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>

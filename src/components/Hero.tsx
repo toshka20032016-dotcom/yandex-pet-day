@@ -1,4 +1,5 @@
 import { AnimatedSection } from './AnimatedSection';
+import { AppIcon } from './ui/Icon';
 
 export function Hero() {
   return (
@@ -26,20 +27,15 @@ export function Hero() {
             </a>
           </div>
           <p className="hero__meta">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path
-                d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5c0-2.5-2-4.5-4.5-4.5z"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-              <circle cx="8" cy="6" r="1.5" fill="currentColor" />
-            </svg>
+            <AppIcon name="mapPin" className="hero__meta-icon" />
             Москва, ивент&#8209;пространство «Академия»
           </p>
         </div>
         <div className="hero__visual" aria-hidden="true">
           <div className="hero-card hero-card--main">
-            <div className="hero-card__icon">🐕</div>
+            <div className="hero-card__icon">
+              <AppIcon name="trendingUp" className="hero-card__icon-svg" />
+            </div>
             <p>Pet&#8209;tech</p>
             <strong>+47% рост рынка</strong>
           </div>
