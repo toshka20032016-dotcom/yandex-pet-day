@@ -1,13 +1,16 @@
 import { AnimatedSection } from './AnimatedSection';
 import { ConferenceTimeline } from './ConferenceTimeline';
+import { PetDecor } from './PetDecor';
 
 export function Program() {
   return (
     <AnimatedSection className="section program" id="program">
+      <PetDecor type="dog" className="pet-decor--program-tr" parallax={180} />
+      <PetDecor type="paw" className="pet-decor--program-bl" parallax={120} />
       <div className="container">
         <div className="section-head">
           <span className="section-label">Программа</span>
-          <h2>Расписание конференции</h2>
+          <h2 className="text-gradient">Расписание конференции</h2>
         </div>
         <ConferenceTimeline />
       </div>

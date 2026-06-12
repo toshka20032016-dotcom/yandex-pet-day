@@ -8,6 +8,7 @@ import {
   Laptop,
   PawPrint,
   TrendingUp,
+  Check,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -21,6 +22,7 @@ const iconMap = {
   laptop: Laptop,
   pawPrint: PawPrint,
   trendingUp: TrendingUp,
+  check: Check,
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;

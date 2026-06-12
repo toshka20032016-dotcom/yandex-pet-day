@@ -1,9 +1,11 @@
 import { AnimatedSection } from './AnimatedSection';
 import { AppIcon } from './ui/Icon';
+import { PetDecorLayer } from './PetDecor';
 
 export function Hero() {
   return (
     <AnimatedSection className="hero">
+      <PetDecorLayer />
       <div className="container hero__grid">
         <div className="hero__content">
           <div className="hero__badges">

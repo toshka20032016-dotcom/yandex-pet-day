@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { PetIcon, getScheduleCategory, type PetCategory } from './ui/PetIcon';
+import { PawIcon } from './ui/PawIcon';
 
 export type ScheduleItem = {
   start: string;
@@ -70,6 +71,13 @@ function getGlowClass(category: PetCategory): string {
   return '';
 }
 
+function getPawVariant(item: ScheduleItem, isBreak: boolean, isTalk: boolean): 'default' | 'break' | 'highlight' {
+  if (item.highlight) return 'highlight';
+  if (isBreak) return 'break';
+  if (isTalk) return 'highlight';
+  return 'default';
+}
+
 export function ConferenceTimeline() {
   return (
     <div className="timeline" aria-label="Расписание конференции" role="list">
@@ -78,6 +86,7 @@ export function ConferenceTimeline() {
         const isTalk = Boolean(item.speaker);
         const category = getScheduleCategory(item);
         const glowClass = getGlowClass(category);
+        const pawVariant = getPawVariant(item, isBreak, isTalk);
         const classes = ['timeline__item'];
         if (isBreak) classes.push('timeline__item--break');
         if (isTalk) classes.push('timeline__item--talk');
@@ -95,6 +104,9 @@ export function ConferenceTimeline() {
             transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
             whileHover={{ scale: 1.01 }}
           >
+            <span className="timeline__marker" aria-hidden="true">
+              <PawIcon size={item.highlight ? 22 : 18} variant={pawVariant} />
+            </span>
             <time className="timeline__time" dateTime={`2026-06-20T${item.start}`}>
               {formatTimeRange(item.start, item.end)}
             </time>
@@ -102,7 +114,7 @@ export function ConferenceTimeline() {
               <div className="timeline__header">
                 <motion.div
                   className="timeline__pet-icon"
-                  whileHover={{ scale: 1.2, color: '#FC3F1D' }}
+                  whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <PetIcon category={category} size={32} />

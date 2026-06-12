@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
 import { SpeakerCard } from './SpeakerCard';
+import { PetDecor } from './PetDecor';
 
 const speakers = [
   {
@@ -29,14 +31,24 @@ const speakers = [
 export function Speakers() {
   return (
     <AnimatedSection className="section speakers" id="speakers">
+      <PetDecor type="cat" className="pet-decor--speakers-tl" parallax={160} />
+      <PetDecor type="bird" className="pet-decor--speakers-br" parallax={100} />
       <div className="container">
         <div className="section-head section-head--center">
           <span className="section-label">Спикеры</span>
-          <h2>Эксперты, которые знают pet&#8209;tech изнутри</h2>
+          <h2 className="text-gradient">Эксперты, которые знают pet&#8209;tech изнутри</h2>
         </div>
         <div className="speakers__grid">
-          {speakers.map((speaker) => (
-            <SpeakerCard key={speaker.name} {...speaker} />
+          {speakers.map((speaker, index) => (
+            <motion.div
+              key={speaker.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
+            >
+              <SpeakerCard {...speaker} />
+            </motion.div>
           ))}
         </div>
       </div>

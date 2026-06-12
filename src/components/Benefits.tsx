@@ -60,15 +60,18 @@ export function Benefits() {
       <div className="container">
         <div className="section-head">
           <span className="section-label">Вы сможете</span>
-          <h2>Всё, что нужно для роста в&nbsp;pet&#8209;индустрии</h2>
+          <h2 className="text-gradient">Всё, что нужно для роста в&nbsp;pet&#8209;индустрии</h2>
         </div>
         <div className="benefits__grid">
-          {benefits.map((item) => (
+          {benefits.map((item, index) => (
             <motion.article
               key={item.title}
               className={`benefit-card${item.highlight ? ' benefit-card--highlight' : ''}${item.glowClass ? ` ${item.glowClass}` : ''}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
                 className="benefit-card__icon"

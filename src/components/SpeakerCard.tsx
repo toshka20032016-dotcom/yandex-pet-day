@@ -55,7 +55,11 @@ export function SpeakerCard({ name, role, topic, avatar, tag, variant }: Speaker
       layout
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="speaker-card__avatar">
+      <motion.div
+        className="speaker-card__avatar"
+        animate={{ scale: isHovered ? 1.06 : 1 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
         <svg className="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true">
           <circle cx="40" cy="40" r="40" fill={`url(#${gradientId})`} />
           <circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)" />
@@ -70,7 +74,7 @@ export function SpeakerCard({ name, role, topic, avatar, tag, variant }: Speaker
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
       <div className="speaker-card__body">
         <h3>{name}</h3>
