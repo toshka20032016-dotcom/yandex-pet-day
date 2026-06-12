@@ -1,0 +1,151 @@
+{
+  "file": "Yandex Pet Day",
+  "version": "1.0.0",
+  "frames": [
+    {
+      "name": "Desktop 1440",
+      "width": 1440,
+      "height": "auto",
+      "background": "#F7F5F0",
+      "mockupFile": "figma/mockups/desktop-1440.html",
+      "sections": [
+        {
+          "name": "PageBackground",
+          "reactComponent": "PageBackground",
+          "layers": ["orb--1", "orb--2", "orb--3", "pet-pattern"]
+        },
+        {
+          "name": "Header",
+          "reactComponent": "Header",
+          "height": 72,
+          "layers": [
+            { "name": "Logo", "type": "component", "text": "Yandex Pet Day" },
+            { "name": "Nav", "type": "group", "items": ["О конференции", "Спикеры", "Программа", "Регистрация", "FAQ"] },
+            { "name": "CTA", "type": "button", "text": "Участвовать", "variant": "primary-sm" }
+          ]
+        },
+        {
+          "name": "Hero",
+          "reactComponent": "Hero",
+          "layers": [
+            { "name": "Badges", "items": ["20 июня 2026", "11:00", "Офлайн + Онлайн"] },
+            { "name": "Title", "type": "text", "style": "H1", "content": "Конференция по digital-продуктам в сфере зообизнеса и сервисов для животных" },
+            { "name": "Lead", "type": "text", "style": "Lead" },
+            { "name": "Actions", "buttons": ["Участвовать", "Смотреть программу"] },
+            { "name": "Meta", "text": "Москва, ивент-пространство «Академия»" },
+            { "name": "Visual", "children": ["Stat card +47%", "AI-диагностика tag", "Зооморфизм & лояльность tag"] }
+          ]
+        },
+        {
+          "name": "Benefits",
+          "reactComponent": "Benefits",
+          "id": "benefits",
+          "label": "Вы сможете",
+          "title": "Всё, что нужно для роста в pet-индустрии",
+          "cards": [
+            { "title": "Выбрать удобный формат участия", "highlight": false },
+            { "title": "Завязать новые полезные знакомства", "highlight": false },
+            { "title": "Узнать о трендах и реальных кейсах", "highlight": false },
+            { "title": "Получить практические инструменты для роста", "highlight": true }
+          ]
+        },
+        {
+          "name": "Speakers",
+          "reactComponent": "Speakers + SpeakerCard",
+          "id": "speakers",
+          "label": "Спикеры",
+          "title": "Эксперты, которые знают pet-tech изнутри",
+          "cards": [
+            { "name": "Андрей Соколов", "role": "Head of Product Design, Яндекс", "tag": "Ведущий конференции", "variant": "design" },
+            { "name": "Мария Подольская", "role": "Head of AI, Лаборатория инноваций", "variant": "ai" },
+            { "name": "Павел Сидоров", "role": "CEO, маркетплейс зоотоваров «Зоо-Маркет»", "variant": "ceo" }
+          ]
+        },
+        {
+          "name": "Program",
+          "reactComponent": "Program + ConferenceTimeline",
+          "id": "program",
+          "background": "#12121A",
+          "label": "Программа",
+          "title": "Расписание конференции",
+          "timeline": [
+            { "time": "10:00 – 10:30", "title": "Приветственный кофе" },
+            { "time": "11:00 – 11:30", "title": "Вводное слово" },
+            { "time": "11:30 – 12:10", "title": "Компьютерное зрение в ветеринарии", "speaker": "Андрей Соколов" },
+            { "time": "12:10 – 12:50", "title": "Зооморфизм", "speaker": "Мария Подольская" },
+            { "time": "12:50 – 13:10", "title": "Перерыв", "type": "break" },
+            { "time": "13:10 – 13:40", "title": "От стартапа до маркетплейса №1", "speaker": "Павел Сидоров" },
+            { "time": "13:40 – 15:00", "title": "Дискуссия", "type": "discussion", "highlight": true },
+            { "time": "15:00 – 16:30", "title": "Нетворкинг" }
+          ]
+        },
+        {
+          "name": "Location",
+          "reactComponent": "Location + AcademyMap",
+          "label": "Локация",
+          "title": "Встречаемся в ивент-пространстве «Академия»",
+          "address": "Москва, Ленинградский проспект 31",
+          "zones": ["Лекторий", "Бизнес-завтрак", "Pet-friendly зона"]
+        },
+        {
+          "name": "CtaBanner",
+          "reactComponent": "CtaBanner",
+          "background": "#12121A",
+          "eyebrow": "Осталось мало мест",
+          "title": "20 июня — pet-tech конференция года",
+          "cta": "Зарегистрироваться"
+        },
+        {
+          "name": "RegisterForm",
+          "reactComponent": "RegisterForm",
+          "id": "register",
+          "label": "Регистрация",
+          "title": "Присоединяйтесь к конференции",
+          "fields": ["Имя", "Почта", "Формат: Офлайн / Онлайн"],
+          "submit": "Зарегистрироваться"
+        },
+        {
+          "name": "Faq",
+          "reactComponent": "Faq + QuestionModal",
+          "id": "faq",
+          "label": "Вопрос-ответ",
+          "title": "Частые вопросы",
+          "items": 5,
+          "cta": "Остались вопросы"
+        },
+        {
+          "name": "Footer",
+          "reactComponent": "Footer",
+          "background": "#12121A",
+          "text": "© Yandex Pet Day, 2026",
+          "links": ["Политика конфиденциальности"],
+          "org": "Организатор — Яндекс Реклама"
+        }
+      ]
+    },
+    {
+      "name": "Mobile 360",
+      "width": 360,
+      "height": "auto",
+      "background": "#F7F5F0",
+      "mockupFile": "figma/mockups/mobile-360.html",
+      "differences": [
+        "Header: burger menu, no nav links",
+        "Hero: no visual card, stacked CTAs",
+        "Benefits/Speakers/Location: single column",
+        "Speakers: thesis visible by default",
+        "Register: single column, stacked format options",
+        "FAQ: single column",
+        "CTA banner: stacked layout"
+      ],
+      "sections": "Same as Desktop 360 — see Desktop frame"
+    }
+  ],
+  "components": {
+    "ui": ["PawIcon", "PetIcon", "Icon (AppIcon)", "AnimatedSection"],
+    "layout": ["PageBackground", "Header", "Footer"],
+    "sections": ["Hero", "Benefits", "Speakers", "SpeakerCard", "Program", "ConferenceTimeline", "Location", "AcademyMap", "CtaBanner", "RegisterForm", "Faq", "QuestionModal", "PetDecor"]
+  },
+  "tokensRef": "figma/design-tokens.json",
+  "liveUrl": "https://yandex-pet-day-opal.vercel.app"
+}
