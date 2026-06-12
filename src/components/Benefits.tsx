@@ -2,27 +2,31 @@ import { motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
 import { AppIcon, type IconName } from './ui/Icon';
 
-const benefits: { icon: IconName; title: string; text: string; highlight?: boolean }[] = [
+const benefits: { icon: IconName; title: string; text: string; highlight?: boolean; glowClass?: string }[] = [
   {
     icon: 'format',
     title: 'Выбрать удобный формат участия',
     text: 'Прийти лично или подключиться к онлайн\u2011трансляции из любой точки мира',
+    glowClass: 'glow--warm',
   },
   {
     icon: 'networking',
     title: 'Завязать новые полезные знакомства',
     text: 'На конференции соберутся ключевые представители pet\u2011индустрии, владельцы digital\u2011продуктов, топ\u2011менеджеры технологических компаний и инвесторы',
+    glowClass: 'glow--warm',
   },
   {
     icon: 'analytics',
     title: 'Узнать о трендах и реальных кейсах',
     text: 'Ведущие эксперты рынка на реальных примерах покажут, как внедрение ИИ, работа с лояльностью и новые форматы монетизации приносят рост выручки',
+    glowClass: 'glow--ai',
   },
   {
     icon: 'growth',
     title: 'Получить практические инструменты для роста',
     text: 'Вы унесёте с собой не только впечатления, но и готовые механики, которые сможете применить в своём продукте',
     highlight: true,
+    glowClass: 'glow--warm',
   },
 ];
 
@@ -62,7 +66,7 @@ export function Benefits() {
           {benefits.map((item) => (
             <motion.article
               key={item.title}
-              className={`benefit-card${item.highlight ? ' benefit-card--highlight' : ''}`}
+              className={`benefit-card${item.highlight ? ' benefit-card--highlight' : ''}${item.glowClass ? ` ${item.glowClass}` : ''}`}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >

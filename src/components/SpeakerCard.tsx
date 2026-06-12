@@ -52,7 +52,7 @@ export function SpeakerCard({ name, role, topic, avatar, tag, variant }: Speaker
       className={`speaker-card${showThesis ? ' speaker-card--active' : ''} ${glowClass}`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      whileHover={{ y: -8, boxShadow: 'var(--shadow-md)' }}
+      layout
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="speaker-card__avatar">
