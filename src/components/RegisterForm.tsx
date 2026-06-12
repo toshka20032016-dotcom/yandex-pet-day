@@ -8,7 +8,7 @@ type Format = 'offline' | 'online' | null;
 const FORMAT_HINTS: Record<'offline' | 'online', { icon: IconName; text: string }> = {
   offline: {
     icon: 'mapPin',
-    text: 'Количество мест ограничено, регистрируйтесь заранее.',
+    text: 'Количество мест ограничено',
   },
   online: {
     icon: 'laptop',

@@ -14,8 +14,8 @@ export function Location() {
         <AcademyMap />
 
         <div className="location__cta">
-          <a className="btn btn--secondary" href="#register">
-            Присоединяйтесь
+          <a className="btn btn--primary" href="#register">
+            Участвовать
           </a>
         </div>
       </div>

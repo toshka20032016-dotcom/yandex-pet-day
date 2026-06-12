@@ -844,9 +844,9 @@ main {
 
 .speaker-card__role {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   margin-bottom: 16px;
   max-width: 260px;
   margin-inline: auto;
@@ -987,9 +987,9 @@ main {
 
 .timeline__time {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(252, 63, 29, 0.75);
+  color: rgba(255, 255, 255, 0.45);
   font-variant-numeric: tabular-nums;
   padding-top: 4px;
   letter-spacing: 0.06em;
@@ -1100,10 +1100,6 @@ main {
   color: #ffb4a6;
 }
 
-.location {
-  padding-top: var(--section-pad);
-  padding-bottom: calc(var(--section-pad) * 0.75);
-}
 
 .location__inner {
   display: flex;
@@ -1198,9 +1194,9 @@ main {
 }
 
 .cta-banner {
-  padding: 56px 0;
-  background: linear-gradient(135deg, var(--color-accent) 0%, #c92a0f 55%, #6c4dff 100%);
-  color: white;
+  padding: clamp(80px, 8vw, 100px) 0;
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
 }
 
 .cta-banner__eyebrow {
@@ -1235,22 +1231,11 @@ main {
 }
 
 .cta-banner .btn--primary {
-  background: white;
-  color: var(--color-accent);
-  box-shadow: 0 4px 24px rgba(26, 26, 36, 0.15);
   flex-shrink: 0;
-}
-
-.cta-banner .btn--primary:hover {
-  background: #fff;
-  filter: brightness(0.97);
-  box-shadow: 0 6px 32px rgba(26, 26, 36, 0.2);
 }
 
 .register {
   background: var(--color-surface-muted);
-  padding-top: calc(var(--section-pad) * 0.75);
-  padding-bottom: var(--section-pad);
 }
 
 .register__grid {
@@ -1686,8 +1671,6 @@ fieldset.form-group { border: none; padding: 0; margin-bottom: 28px; }
 
   .hero { padding: 56px 0 80px; }
   .section { padding: var(--section-pad-mobile) 0; }
-  .location { padding-top: var(--section-pad-mobile); padding-bottom: calc(var(--section-pad-mobile) * 0.75); }
-  .register { padding-top: calc(var(--section-pad-mobile) * 0.75); padding-bottom: var(--section-pad-mobile); }
   .hero__lead { font-size: 16px; }
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { width: 100%; }
