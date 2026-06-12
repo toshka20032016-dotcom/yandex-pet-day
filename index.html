@@ -107,34 +107,42 @@
     </section>
 
     <section class="section benefits" id="benefits">
+      <div class="benefits__decor" aria-hidden="true">
+        <svg class="benefits__lines" viewBox="0 0 1200 400" preserveAspectRatio="none">
+          <path d="M0,200 Q300,80 600,200 T1200,180" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M0,280 Q400,160 800,280 T1200,260" fill="none" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <svg class="benefits__paws benefits__paws--left" viewBox="0 0 120 120"><g opacity="0.06" fill="currentColor"><circle cx="24" cy="24" r="10"/><circle cx="44" cy="14" r="7"/><circle cx="12" cy="40" r="6"/><circle cx="32" cy="36" r="6"/><ellipse cx="28" cy="54" rx="14" ry="11"/></g></svg>
+        <svg class="benefits__paws benefits__paws--right" viewBox="0 0 120 120"><g opacity="0.05" fill="currentColor"><circle cx="96" cy="96" r="10"/><circle cx="76" cy="106" r="7"/><circle cx="108" cy="80" r="6"/><circle cx="88" cy="84" r="6"/><ellipse cx="92" cy="66" rx="14" ry="11"/></g></svg>
+      </div>
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-animate>
           <span class="section-label">Вы сможете</span>
           <h2>Всё, что нужно для роста в&nbsp;pet&#8209;индустрии</h2>
         </div>
         <div class="benefits__grid">
-          <article class="benefit-card">
+          <article class="benefit-card" data-animate>
             <div class="benefit-card__icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h12M10 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h3>Выбрать удобный формат участия</h3>
             <p>Прийти лично или подключиться к онлайн&#8209;трансляции из любой точки мира</p>
           </article>
-          <article class="benefit-card">
+          <article class="benefit-card" data-animate>
             <div class="benefit-card__icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="11" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="21" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M5 26c0-4 3-7 6-7s6 3 6 7M15 26c0-4 3-7 6-7s6 3 6 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h3>Завязать новые полезные знакомства</h3>
             <p>На конференции соберутся ключевые представители pet&#8209;индустрии, владельцы digital&#8209;продуктов, топ&#8209;менеджеры технологических компаний и инвесторы</p>
           </article>
-          <article class="benefit-card">
+          <article class="benefit-card" data-animate>
             <div class="benefit-card__icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 24l8-16 6 8 4-6 8 14H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
             </div>
             <h3>Узнать о трендах и реальных кейсах</h3>
             <p>Ведущие эксперты рынка на реальных примерах покажут, как внедрение ИИ, работа с лояльностью и новые форматы монетизации приносят рост выручки</p>
           </article>
-          <article class="benefit-card benefit-card--highlight">
+          <article class="benefit-card benefit-card--highlight" data-animate>
             <div class="benefit-card__icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16l4 4 12-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
@@ -147,12 +155,12 @@
 
     <section class="section speakers" id="speakers">
       <div class="container">
-        <div class="section-head section-head--center">
+        <div class="section-head section-head--center" data-animate>
           <span class="section-label">Спикеры</span>
           <h2>Эксперты, которые знают pet&#8209;tech изнутри</h2>
         </div>
         <div class="speakers__grid">
-          <article class="speaker-card">
+          <article class="speaker-card" data-animate>
             <div class="speaker-card__avatar speaker-card__avatar--design">
               <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad1)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">АС</text><defs><linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#fc3f1d"/><stop offset="1" stop-color="#ff6b4a"/></linearGradient></defs></svg>
             </div>
@@ -162,7 +170,7 @@
               <span class="speaker-card__tag">Ведущий конференции</span>
             </div>
           </article>
-          <article class="speaker-card">
+          <article class="speaker-card" data-animate>
             <div class="speaker-card__avatar speaker-card__avatar--ai">
               <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad2)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">МП</text><defs><linearGradient id="grad2" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#6c4dff"/><stop offset="1" stop-color="#9b7dff"/></linearGradient></defs></svg>
             </div>
@@ -171,7 +179,7 @@
               <p class="speaker-card__role">Head of AI, Лаборатория инноваций</p>
             </div>
           </article>
-          <article class="speaker-card">
+          <article class="speaker-card" data-animate>
             <div class="speaker-card__avatar speaker-card__avatar--ceo">
               <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad3)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">ПС</text><defs><linearGradient id="grad3" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#0d9488"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient></defs></svg>
             </div>
@@ -186,69 +194,12 @@
 
     <section class="section program" id="program">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-animate>
           <span class="section-label">Программа</span>
           <h2>Расписание конференции</h2>
         </div>
-        <div class="timeline">
-          <div class="timeline__item timeline__item--break">
-            <time class="timeline__time">10:00 – 10:30</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Перерыв</span>
-              <h3 class="timeline__title">Приветственный кофе</h3>
-              <p class="timeline__speaker">Нетворкинг с участниками и партнёрами <span class="tag-inline">только офлайн</span></p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <time class="timeline__time">11:00 – 11:30</time>
-            <div class="timeline__content">
-              <h3 class="timeline__title">Вводное слово</h3>
-            </div>
-          </div>
-          <div class="timeline__item timeline__item--talk">
-            <time class="timeline__time">11:30 – 12:10</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Доклад</span>
-              <h3 class="timeline__title timeline__title--talk">«Компьютерное зрение в ветеринарии»</h3>
-              <p class="timeline__speaker">Андрей Соколов, Head of Product Design, Яндекс</p>
-            </div>
-          </div>
-          <div class="timeline__item timeline__item--talk">
-            <time class="timeline__time">12:10 – 12:50</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Доклад</span>
-              <h3 class="timeline__title timeline__title--talk">«Зооморфизм как драйвер лояльности»</h3>
-              <p class="timeline__speaker">Мария Подольская, Head of AI, Лаборатория инноваций</p>
-            </div>
-          </div>
-          <div class="timeline__item timeline__item--break">
-            <time class="timeline__time">12:50 – 13:10</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Перерыв</span>
-              <h3 class="timeline__title">Перерыв</h3>
-            </div>
-          </div>
-          <div class="timeline__item timeline__item--talk">
-            <time class="timeline__time">13:10 – 13:40</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Доклад</span>
-              <h3 class="timeline__title timeline__title--talk">«От стартапа до маркетплейса №1: ошибки и победы»</h3>
-              <p class="timeline__speaker">Павел Сидоров — CEO, маркетплейс зоотоваров «Зоо&#8209;Маркет»</p>
-            </div>
-          </div>
-          <div class="timeline__item timeline__item--talk">
-            <time class="timeline__time">13:40 – 15:00</time>
-            <div class="timeline__content">
-              <span class="timeline__type">Дискуссия</span>
-              <h3 class="timeline__title timeline__title--talk">«Инвестиции в Pet&#8209;технологии: пузырь или новая нефть?»</h3>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <time class="timeline__time">15:00 – 16:30</time>
-            <div class="timeline__content">
-              <h3 class="timeline__title">Нетворкинг</h3>
-            </div>
-          </div>
+        <div class="timeline" id="program-timeline" aria-label="Расписание конференции">
+          <!-- Populated by js/schedule.js -->
         </div>
       </div>
     </section>
@@ -269,13 +220,14 @@
       </div>
     </section>
 
-    <section class="cta-banner">
-      <div class="container cta-banner__inner">
+    <section class="cta-banner" aria-labelledby="cta-banner-title">
+      <div class="container cta-banner__inner" data-animate>
         <div class="cta-banner__text">
-          <h2>20 июня — pet&#8209;tech конференция года</h2>
-          <p>Офлайн в Москве или онлайн из любой точки мира</p>
+          <span class="cta-banner__eyebrow">Осталось мало мест</span>
+          <h2 id="cta-banner-title">20 июня — pet&#8209;tech конференция года</h2>
+          <p>Офлайн в Москве или онлайн из любой точки мира. Запишитесь сейчас — участие бесплатное.</p>
         </div>
-        <a class="btn btn--primary btn--lg" href="#register-form">Участвовать</a>
+        <a class="btn btn--primary btn--lg" href="#register-form">Зарегистрироваться</a>
       </div>
     </section>
 
@@ -303,7 +255,7 @@
                 <span class="format-option__box">
                   <span class="format-option__icon" aria-hidden="true">📍</span>
                   <strong>Офлайн</strong>
-                  <small class="format-option__hint format-option__hint--offline">Количество мест ограничено</small>
+                  <small class="format-option__label">Москва, «Академия»</small>
                 </span>
               </label>
               <label class="format-option">
@@ -311,13 +263,20 @@
                 <span class="format-option__box">
                   <span class="format-option__icon" aria-hidden="true">💻</span>
                   <strong>Онлайн</strong>
-                  <small class="format-option__hint format-option__hint--online">Пришлём ссылку на трансляцию на почту за час до начала</small>
+                  <small class="format-option__label">Трансляция в прямом эфире</small>
                 </span>
               </label>
             </div>
+            <div class="format-hint" id="format-hint" hidden aria-live="polite">
+              <span class="format-hint__icon" aria-hidden="true"></span>
+              <p class="format-hint__text"></p>
+            </div>
           </fieldset>
-          <button type="submit" class="btn btn--primary btn--lg btn--full">Зарегистрироваться</button>
-          <p class="form-note" id="register-success" hidden>Спасибо! Мы отправили подтверждение на вашу почту.</p>
+          <button type="submit" class="btn btn--primary btn--lg btn--full" id="register-submit">
+            <span class="btn__label">Зарегистрироваться</span>
+            <span class="btn__spinner" hidden aria-hidden="true"></span>
+          </button>
+          <p class="form-note form-note--success" id="register-success" hidden role="status">Спасибо! Мы отправили подтверждение на вашу почту.</p>
         </form>
       </div>
     </section>
@@ -388,6 +347,7 @@
     </div>
   </div>
 
+  <script src="js/schedule.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
