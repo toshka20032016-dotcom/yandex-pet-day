@@ -5,7 +5,7 @@
 
 :root {
   --color-bg: #f7f5f0;
-  --color-bg-dark: #1a1a1a;
+  --color-bg-dark: #12121a;
   --color-surface: #ffffff;
   --color-surface-muted: #f0ece4;
   --color-text: #1a1a24;
@@ -147,6 +147,7 @@ h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
 
 .pet-decor__stroke {
   color: var(--color-accent);
+  opacity: 0.17;
 }
 
 .pet-decor--hero-tr {
@@ -401,7 +402,7 @@ main {
   white-space: nowrap;
 }
 
-.btn:active { transform: scale(0.95); }
+.btn:active { transform: scale(0.98); }
 
 .btn--sm { padding: 10px 20px; font-size: 14px; }
 .btn--lg { padding: 16px 32px; font-size: 16px; }
@@ -470,6 +471,11 @@ main {
   position: relative;
   overflow: hidden;
   padding: 96px 0 128px;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__grid {
@@ -982,17 +988,17 @@ main {
 
 .timeline__time {
   display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.38);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(252, 63, 29, 0.75);
   font-variant-numeric: tabular-nums;
   padding-top: 4px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .timeline__item--break .timeline__time {
-  color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .timeline__type {
@@ -1153,12 +1159,14 @@ main {
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  transition: all 0.3s ease;
 }
 
 .academy-zone:hover,
 .academy-zone--active {
+  transform: translateY(-8px);
   border-color: rgba(252, 63, 29, 0.35);
+  box-shadow: var(--shadow-md);
 }
 
 .academy-zone__icon {

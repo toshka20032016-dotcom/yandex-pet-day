@@ -105,8 +105,6 @@ export function AcademyMap() {
               className={`academy-zone glow--warm${isActive ? ' academy-zone--active' : ''}`}
               onMouseEnter={() => setActiveZone(zone.id)}
               onMouseLeave={() => setActiveZone(null)}
-              animate={{ y: isActive ? -5 : 0 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="academy-zone__icon" style={isActive ? { background: `${zone.accent}18`, color: zone.accent } : undefined}>
                 <Icon strokeWidth={1.5} aria-hidden="true" />
