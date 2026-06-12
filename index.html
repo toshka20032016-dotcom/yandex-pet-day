@@ -16,6 +16,8 @@
     <div class="orb orb--1"></div>
     <div class="orb orb--2"></div>
     <div class="orb orb--3"></div>
+    <svg class="pet-pattern pet-pattern--hero" viewBox="0 0 200 200"><g opacity="0.04" fill="currentColor"><circle cx="30" cy="30" r="10"/><circle cx="50" cy="18" r="7"/><circle cx="18" cy="48" r="6"/><circle cx="42" cy="42" r="6"/><ellipse cx="36" cy="62" rx="14" ry="11"/></g></svg>
+    <svg class="pet-pattern pet-pattern--speakers" viewBox="0 0 200 200"><g opacity="0.05" fill="currentColor"><circle cx="160" cy="40" r="8"/><circle cx="178" cy="32" r="6"/><circle cx="150" cy="54" r="5"/><ellipse cx="168" cy="68" rx="12" ry="9"/></g></svg>
   </div>
 
   <header class="header" id="top">
@@ -151,7 +153,9 @@
         </div>
         <div class="speakers__grid">
           <article class="speaker-card">
-            <div class="speaker-card__avatar" data-initials="АС">АС</div>
+            <div class="speaker-card__avatar speaker-card__avatar--design">
+              <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad1)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">АС</text><defs><linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#fc3f1d"/><stop offset="1" stop-color="#ff6b4a"/></linearGradient></defs></svg>
+            </div>
             <div class="speaker-card__body">
               <h3>Андрей Соколов</h3>
               <p class="speaker-card__role">Head of Product Design, Яндекс</p>
@@ -159,14 +163,18 @@
             </div>
           </article>
           <article class="speaker-card">
-            <div class="speaker-card__avatar speaker-card__avatar--violet" data-initials="МП">МП</div>
+            <div class="speaker-card__avatar speaker-card__avatar--ai">
+              <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad2)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">МП</text><defs><linearGradient id="grad2" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#6c4dff"/><stop offset="1" stop-color="#9b7dff"/></linearGradient></defs></svg>
+            </div>
             <div class="speaker-card__body">
               <h3>Мария Подольская</h3>
               <p class="speaker-card__role">Head of AI, Лаборатория инноваций</p>
             </div>
           </article>
           <article class="speaker-card">
-            <div class="speaker-card__avatar speaker-card__avatar--teal" data-initials="ПС">ПС</div>
+            <div class="speaker-card__avatar speaker-card__avatar--ceo">
+              <svg class="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="url(#grad3)"/><circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)"/><ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)"/><text x="40" y="44" text-anchor="middle" fill="white" font-size="16" font-weight="700">ПС</text><defs><linearGradient id="grad3" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#0d9488"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient></defs></svg>
+            </div>
             <div class="speaker-card__body">
               <h3>Павел Сидоров</h3>
               <p class="speaker-card__role">CEO, маркетплейс зоотоваров «Зоо&#8209;Маркет»</p>
@@ -184,55 +192,61 @@
         </div>
         <div class="timeline">
           <div class="timeline__item timeline__item--break">
-            <time>10:00 – 10:30</time>
+            <time class="timeline__time">10:00 – 10:30</time>
             <div class="timeline__content">
-              <h3>Приветственный кофе</h3>
-              <p>Нетворкинг с участниками и партнёрами <span class="tag-inline">только офлайн</span></p>
+              <span class="timeline__type">Перерыв</span>
+              <h3 class="timeline__title">Приветственный кофе</h3>
+              <p class="timeline__speaker">Нетворкинг с участниками и партнёрами <span class="tag-inline">только офлайн</span></p>
             </div>
           </div>
           <div class="timeline__item">
-            <time>11:00 – 11:30</time>
+            <time class="timeline__time">11:00 – 11:30</time>
             <div class="timeline__content">
-              <h3>Вводное слово</h3>
+              <h3 class="timeline__title">Вводное слово</h3>
             </div>
           </div>
           <div class="timeline__item timeline__item--talk">
-            <time>11:30 – 12:10</time>
+            <time class="timeline__time">11:30 – 12:10</time>
             <div class="timeline__content">
-              <h3>«Компьютерное зрение в ветеринарии»</h3>
-              <p>Андрей Соколов, Head of Product Design, Яндекс</p>
+              <span class="timeline__type">Доклад</span>
+              <h3 class="timeline__title timeline__title--talk">«Компьютерное зрение в ветеринарии»</h3>
+              <p class="timeline__speaker">Андрей Соколов, Head of Product Design, Яндекс</p>
             </div>
           </div>
           <div class="timeline__item timeline__item--talk">
-            <time>12:10 – 12:50</time>
+            <time class="timeline__time">12:10 – 12:50</time>
             <div class="timeline__content">
-              <h3>«Зооморфизм как драйвер лояльности»</h3>
-              <p>Мария Подольская, Head of AI, Лаборатория инноваций</p>
+              <span class="timeline__type">Доклад</span>
+              <h3 class="timeline__title timeline__title--talk">«Зооморфизм как драйвер лояльности»</h3>
+              <p class="timeline__speaker">Мария Подольская, Head of AI, Лаборатория инноваций</p>
             </div>
           </div>
           <div class="timeline__item timeline__item--break">
-            <time>12:50 – 13:10</time>
+            <time class="timeline__time">12:50 – 13:10</time>
             <div class="timeline__content">
-              <h3>Перерыв</h3>
+              <span class="timeline__type">Перерыв</span>
+              <h3 class="timeline__title">Перерыв</h3>
             </div>
           </div>
           <div class="timeline__item timeline__item--talk">
-            <time>13:10 – 13:40</time>
+            <time class="timeline__time">13:10 – 13:40</time>
             <div class="timeline__content">
-              <h3>«От стартапа до маркетплейса №1: ошибки и победы»</h3>
-              <p>Павел Сидоров — CEO, маркетплейс зоотоваров «Зоо&#8209;Маркет»</p>
+              <span class="timeline__type">Доклад</span>
+              <h3 class="timeline__title timeline__title--talk">«От стартапа до маркетплейса №1: ошибки и победы»</h3>
+              <p class="timeline__speaker">Павел Сидоров — CEO, маркетплейс зоотоваров «Зоо&#8209;Маркет»</p>
             </div>
           </div>
           <div class="timeline__item timeline__item--talk">
-            <time>13:40 – 15:00</time>
+            <time class="timeline__time">13:40 – 15:00</time>
             <div class="timeline__content">
-              <h3>Дискуссия «Инвестиции в Pet&#8209;технологии: пузырь или новая нефть?»</h3>
+              <span class="timeline__type">Дискуссия</span>
+              <h3 class="timeline__title timeline__title--talk">«Инвестиции в Pet&#8209;технологии: пузырь или новая нефть?»</h3>
             </div>
           </div>
           <div class="timeline__item">
-            <time>15:00 – 16:30</time>
+            <time class="timeline__time">15:00 – 16:30</time>
             <div class="timeline__content">
-              <h3>Нетворкинг</h3>
+              <h3 class="timeline__title">Нетворкинг</h3>
             </div>
           </div>
         </div>
@@ -255,6 +269,16 @@
       </div>
     </section>
 
+    <section class="cta-banner">
+      <div class="container cta-banner__inner">
+        <div class="cta-banner__text">
+          <h2>20 июня — pet&#8209;tech конференция года</h2>
+          <p>Офлайн в Москве или онлайн из любой точки мира</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="#register-form">Участвовать</a>
+      </div>
+    </section>
+
     <section class="section register" id="register">
       <div class="container register__grid">
         <div class="register__intro">
@@ -265,27 +289,29 @@
         <form class="register-form" id="register-form" novalidate>
           <div class="form-group">
             <label for="reg-name">Имя</label>
-            <input type="text" id="reg-name" name="name" required autocomplete="name" placeholder="Как к вам обращаться">
+            <input type="text" id="reg-name" name="name" required autocomplete="name" placeholder="Введите ваше имя">
           </div>
           <div class="form-group">
             <label for="reg-email">Почта</label>
-            <input type="email" id="reg-email" name="email" required autocomplete="email" placeholder="name@company.ru">
+            <input type="email" id="reg-email" name="email" required autocomplete="email" placeholder="example@mail.ru">
           </div>
-          <fieldset class="form-group">
-            <legend>Выберите формат участия</legend>
+          <fieldset class="form-group form-group--format">
+            <legend>Выберите формат участия <span class="legend-hint">(онлайн / офлайн)</span></legend>
             <div class="format-options">
               <label class="format-option">
                 <input type="radio" name="format" value="offline" required>
                 <span class="format-option__box">
+                  <span class="format-option__icon" aria-hidden="true">📍</span>
                   <strong>Офлайн</strong>
-                  <small>Количество мест ограничено</small>
+                  <small class="format-option__hint format-option__hint--offline">Количество мест ограничено</small>
                 </span>
               </label>
               <label class="format-option">
                 <input type="radio" name="format" value="online">
                 <span class="format-option__box">
+                  <span class="format-option__icon" aria-hidden="true">💻</span>
                   <strong>Онлайн</strong>
-                  <small>Пришлём ссылку на трансляцию за час до начала</small>
+                  <small class="format-option__hint format-option__hint--online">Пришлём ссылку на трансляцию на почту за час до начала</small>
                 </span>
               </label>
             </div>
