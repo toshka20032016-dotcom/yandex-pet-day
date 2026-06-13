@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { PetIcon, getScheduleCategory, type PetCategory } from './ui/PetIcon';
-import { PawIcon } from './ui/PawIcon';
+import { Mic2, Coffee, Users, Sparkles, PauseCircle, MessageCircle } from 'lucide-react';
 
 export type ScheduleItem = {
   start: string;
@@ -19,11 +18,7 @@ const SCHEDULE: ScheduleItem[] = [
     speaker: 'Нетворкинг с участниками и партнёрами',
     tag: 'только офлайн',
   },
-  {
-    start: '11:00',
-    end: '11:30',
-    title: 'Вводное слово',
-  },
+  { start: '11:00', end: '11:30', title: 'Вводное слово' },
   {
     start: '11:30',
     end: '12:10',
@@ -36,11 +31,7 @@ const SCHEDULE: ScheduleItem[] = [
     title: '«Зооморфизм как драйвер лояльности»',
     speaker: 'Мария Подольская, Head of AI, Лаборатория инноваций',
   },
-  {
-    start: '12:50',
-    end: '13:10',
-    title: 'Перерыв',
-  },
+  { start: '12:50', end: '13:10', title: 'Перерыв' },
   {
     start: '13:10',
     end: '13:40',
@@ -53,99 +44,88 @@ const SCHEDULE: ScheduleItem[] = [
     title: '«Инвестиции в Pet-технологии: пузырь или новая нефть?»',
     highlight: true,
   },
-  {
-    start: '15:00',
-    end: '16:30',
-    title: 'Нетворкинг',
-  },
+  { start: '15:00', end: '16:30', title: 'Нетворкинг' },
 ];
+
+type SessionType = 'coffee' | 'opening' | 'talk' | 'break' | 'discussion' | 'networking';
+
+function getSessionType(item: ScheduleItem): SessionType {
+  if (item.title === 'Перерыв') return 'break';
+  if (item.highlight) return 'discussion';
+  if (item.title === 'Вводное слово') return 'opening';
+  if (item.title.includes('кофе')) return 'coffee';
+  if (item.title === 'Нетворкинг') return 'networking';
+  return 'talk';
+}
+
+const typeConfig: Record<
+  SessionType,
+  { label: string; icon: typeof Mic2; className: string }
+> = {
+  talk: { label: 'Доклад', icon: Mic2, className: 'schedule-tag--talk' },
+  break: { label: 'Перерыв', icon: PauseCircle, className: 'schedule-tag--break' },
+  opening: { label: 'Открытие', icon: Sparkles, className: 'schedule-tag--opening' },
+  coffee: { label: 'Нетворкинг', icon: Coffee, className: 'schedule-tag--coffee' },
+  discussion: { label: 'Дискуссия', icon: MessageCircle, className: 'schedule-tag--discussion' },
+  networking: { label: 'Нетворкинг', icon: Users, className: 'schedule-tag--networking' },
+};
 
 function formatTimeRange(start: string, end: string) {
   return `${start} – ${end}`;
 }
 
-function getGlowClass(category: PetCategory): string {
-  if (category === 'ai') return 'glow--ai';
-  if (category === 'marketplace' || category === 'networking') return 'glow--warm';
-  if (category === 'loyalty' || category === 'discussion') return 'glow--warm';
-  return '';
-}
-
-function getPawVariant(item: ScheduleItem, isBreak: boolean, isTalk: boolean): 'default' | 'break' | 'highlight' {
-  if (item.highlight) return 'highlight';
-  if (isBreak) return 'break';
-  if (isTalk) return 'highlight';
-  return 'default';
-}
-
 export function ConferenceTimeline() {
   return (
-    <div className="timeline" aria-label="Расписание конференции" role="list">
-      {SCHEDULE.map((item, index) => {
-        const isBreak = item.title === 'Перерыв';
-        const isTalk = Boolean(item.speaker);
-        const category = getScheduleCategory(item);
-        const glowClass = getGlowClass(category);
-        const pawVariant = getPawVariant(item, isBreak, isTalk);
-        const classes = ['timeline__item'];
-        if (isBreak) classes.push('timeline__item--break');
-        if (isTalk) classes.push('timeline__item--talk');
-        if (item.highlight) classes.push('timeline__item--discussion');
-        if (glowClass) classes.push(glowClass);
+    <div className="schedule-glass" aria-label="Расписание конференции">
+      <div className="schedule-glass__glow" aria-hidden="true" />
+      <div className="schedule-glass__scroll">
+        <table className="schedule-table">
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Тип</th>
+              <th>Сессия</th>
+              <th>Спикер / формат</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SCHEDULE.map((item, index) => {
+              const type = getSessionType(item);
+              const config = typeConfig[type];
+              const Icon = config.icon;
 
-        return (
-          <motion.div
-            key={`${item.start}-${item.title}`}
-            className={classes.join(' ')}
-            role="listitem"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-            whileHover={{ scale: 1.01 }}
-          >
-            <span className="timeline__marker" aria-hidden="true">
-              <PawIcon size={item.highlight ? 22 : 18} variant={pawVariant} />
-            </span>
-            <time className="timeline__time" dateTime={`2026-06-20T${item.start}`}>
-              {formatTimeRange(item.start, item.end)}
-            </time>
-            <div className="timeline__content">
-              <div className="timeline__header">
-                <motion.div
-                  className="timeline__pet-icon"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              return (
+                <motion.tr
+                  key={`${item.start}-${item.title}`}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: index * 0.06, duration: 0.45 }}
+                  className={item.highlight ? 'schedule-table__row--highlight' : undefined}
                 >
-                  <PetIcon category={category} size={32} />
-                </motion.div>
-                <div className="timeline__text">
-                  {item.highlight && (
-                    <>
-                      <span className="timeline__type">Дискуссия</span>
-                      <span className="timeline__badge">Ключевой блок · 1 ч 20 мин</span>
-                    </>
-                  )}
-                  <h3 className={isTalk || item.highlight ? 'timeline__title timeline__title--talk' : 'timeline__title'}>
-                    {item.title}
-                  </h3>
-                  {item.speaker && (
-                    <p className="timeline__speaker">
-                      {item.speaker}
-                      {item.tag && <span className="tag-inline">{item.tag}</span>}
-                    </p>
-                  )}
-                  {!item.speaker && item.tag && (
-                    <p className="timeline__speaker">
-                      <span className="tag-inline">{item.tag}</span>
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        );
-      })}
+                  <td>
+                    <time dateTime={`2026-06-20T${item.start}`} className="schedule-table__time">
+                      {formatTimeRange(item.start, item.end)}
+                    </time>
+                  </td>
+                  <td>
+                    <span className={`schedule-tag ${config.className}`}>
+                      <Icon size={12} aria-hidden="true" />
+                      {config.label}
+                    </span>
+                  </td>
+                  <td className="schedule-table__title">{item.title}</td>
+                  <td className="schedule-table__host">
+                    {item.speaker ?? '—'}
+                    {item.tag && <span className="schedule-table__tag">{item.tag}</span>}
+                  </td>
+                </motion.tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="schedule-glass__beam" aria-hidden="true" />
     </div>
   );
 }

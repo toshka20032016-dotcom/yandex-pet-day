@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BorderBeam } from './ui/BorderBeam';
 
 type SpeakerVariant = 'design' | 'ai' | 'ceo';
 
@@ -18,17 +19,17 @@ const variantConfig: Record<
 > = {
   design: {
     gradientId: 'speaker-grad-design',
-    stops: ['#fc3f1d', '#ff6b4a'],
+    stops: ['#ff6b4a', '#ff9470'],
     glowClass: 'glow--warm',
   },
   ai: {
     gradientId: 'speaker-grad-ai',
-    stops: ['#6c4dff', '#9b7dff'],
+    stops: ['#8b5cf6', '#c4b5fd'],
     glowClass: 'glow--ai',
   },
   ceo: {
     gradientId: 'speaker-grad-ceo',
-    stops: ['#0d9488', '#2dd4bf'],
+    stops: ['#06b6d4', '#2dd4bf'],
     glowClass: 'glow--teal',
   },
 };
@@ -48,53 +49,55 @@ export function SpeakerCard({ name, role, topic, avatar, tag, variant }: Speaker
   }, []);
 
   return (
-    <motion.article
-      className={`speaker-card${showThesis ? ' speaker-card--active' : ''} ${glowClass}`}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      layout
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div
-        className="speaker-card__avatar"
-        animate={{ scale: isHovered ? 1.06 : 1 }}
+    <BorderBeam>
+      <motion.article
+        className={`speaker-card glass-dark${showThesis ? ' speaker-card--active' : ''} ${glowClass}`}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+        layout
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
-        <svg className="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true">
-          <circle cx="40" cy="40" r="40" fill={`url(#${gradientId})`} />
-          <circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)" />
-          <ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)" />
-          <text x="40" y="44" textAnchor="middle" fill="white" fontSize="16" fontWeight="700">
-            {avatar}
-          </text>
-          <defs>
-            <linearGradient id={gradientId} x1="0" y1="0" x2="80" y2="80">
-              <stop stopColor={stops[0]} />
-              <stop offset="1" stopColor={stops[1]} />
-            </linearGradient>
-          </defs>
-        </svg>
-      </motion.div>
+        <motion.div
+          className="speaker-card__avatar"
+          animate={{ scale: isHovered ? 1.06 : 1 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <svg className="speaker-card__portrait" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="40" fill={`url(#${gradientId})`} />
+            <circle cx="40" cy="32" r="14" fill="rgba(255,255,255,.25)" />
+            <ellipse cx="40" cy="58" rx="20" ry="14" fill="rgba(255,255,255,.2)" />
+            <text x="40" y="44" textAnchor="middle" fill="white" fontSize="16" fontWeight="700">
+              {avatar}
+            </text>
+            <defs>
+              <linearGradient id={gradientId} x1="0" y1="0" x2="80" y2="80">
+                <stop stopColor={stops[0]} />
+                <stop offset="1" stopColor={stops[1]} />
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
 
-      <div className="speaker-card__body">
-        <h3>{name}</h3>
-        <p className="speaker-card__role">{role}</p>
-        {tag && <span className="speaker-card__tag">{tag}</span>}
+        <div className="speaker-card__body">
+          <h3>{name}</h3>
+          <p className="speaker-card__role">{role}</p>
+          {tag && <span className="speaker-card__tag">{tag}</span>}
 
-        <AnimatePresence initial={false}>
-          {showThesis && (
-            <motion.div
-              className="speaker-card__thesis"
-              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-              animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
-              exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
-            >
-              <p>«{topic}»</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.article>
+          <AnimatePresence initial={false}>
+            {showThesis && (
+              <motion.div
+                className="speaker-card__thesis"
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+              >
+                <p>«{topic}»</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.article>
+    </BorderBeam>
   );
 }
