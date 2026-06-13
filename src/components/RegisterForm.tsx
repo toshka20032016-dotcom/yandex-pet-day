@@ -51,8 +51,8 @@ export function RegisterForm() {
       <div className="container register__grid">
         <div className="register__intro">
           <span className="section-label">Регистрация</span>
-          <h2>Присоединяйтесь к&nbsp;конференции</h2>
-          <p>Заполните форму — мы отправим подтверждение и все детали участия на вашу почту.</p>
+          <h2>Присоединяйтесь</h2>
+          <p>Заполните форму — мы отправим подтверждение и детали участия на вашу почту.</p>
         </div>
         <AnimatePresence mode="wait">
           {success ? (
