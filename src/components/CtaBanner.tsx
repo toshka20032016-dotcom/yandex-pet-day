@@ -1,17 +1,19 @@
 import { AnimatedSection } from './AnimatedSection';
+import { CtaButton } from './ui/CtaButton';
+import { cta } from '../content/cta';
 
 export function CtaBanner() {
   return (
     <AnimatedSection className="cta-banner" aria-labelledby="cta-banner-title">
       <div className="container cta-banner__inner">
         <div className="cta-banner__text">
-          <span className="cta-banner__eyebrow">Осталось мало мест</span>
-          <h2 id="cta-banner-title">20 июня — pet&#8209;tech конференция года</h2>
-          <p>Офлайн в Москве или онлайн из любой точки мира. Запишитесь сейчас — участие бесплатное.</p>
+          <span className="cta-banner__eyebrow">{cta.bannerEyebrow}</span>
+          <h2 id="cta-banner-title">{cta.bannerTitle}</h2>
+          <p>{cta.bannerLead}</p>
         </div>
-        <a className="btn btn--primary btn--lg" href="#register-form">
-          Зарегистрироваться
-        </a>
+        <CtaButton href={cta.anchors.form} size="lg" className="cta-banner__action">
+          {cta.bannerAction}
+        </CtaButton>
       </div>
     </AnimatedSection>
   );

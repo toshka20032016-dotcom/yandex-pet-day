@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { cta } from '../content/cta';
+import { CtaButton } from './ui/CtaButton';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,12 +36,11 @@ export function Header() {
           <a href="#benefits">О конференции</a>
           <a href="#speakers">Спикеры</a>
           <a href="#program">Программа</a>
-          <a href="#register">Регистрация</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a className="btn btn--sm btn--primary header__cta" href="#register">
-          Участвовать
-        </a>
+        <CtaButton href={cta.anchors.register} size="sm" className="header__cta">
+          {cta.primary}
+        </CtaButton>
         <button
           className={`burger${menuOpen ? ' is-open' : ''}`}
           type="button"
@@ -64,15 +65,12 @@ export function Header() {
           <a href="#program" onClick={closeMenu}>
             Программа
           </a>
-          <a href="#register" onClick={closeMenu}>
-            Регистрация
-          </a>
           <a href="#faq" onClick={closeMenu}>
             FAQ
           </a>
-          <a className="btn btn--primary" href="#register" onClick={closeMenu}>
-            Участвовать
-          </a>
+          <CtaButton href={cta.anchors.register} onClick={closeMenu}>
+            {cta.primary}
+          </CtaButton>
         </nav>
       </div>
     </header>

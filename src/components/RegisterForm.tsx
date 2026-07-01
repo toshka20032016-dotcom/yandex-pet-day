@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
 import { AppIcon, type IconName } from './ui/Icon';
+import { cta } from '../content/cta';
 
 type Format = 'offline' | 'online' | null;
 
@@ -51,8 +52,8 @@ export function RegisterForm() {
       <div className="container register__grid">
         <div className="register__intro">
           <span className="section-label">Регистрация</span>
-          <h2>Присоединяйтесь</h2>
-          <p>Заполните форму — мы отправим подтверждение и детали участия на вашу почту.</p>
+          <h2>Осталось заполнить форму</h2>
+          <p>Заполните форму — мы отправим подтверждение и детали участия на вашу почту. {cta.freeNote}.</p>
         </div>
         <AnimatePresence mode="wait">
           {success ? (
@@ -170,7 +171,7 @@ export function RegisterForm() {
                 id="register-submit"
                 disabled={loading}
               >
-                <span className="btn__label">Зарегистрироваться</span>
+                <span className="btn__label">{cta.formSubmit}</span>
                 {loading && <span className="btn__spinner" aria-hidden="true" />}
               </button>
             </motion.form>

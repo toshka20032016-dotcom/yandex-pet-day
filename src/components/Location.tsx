@@ -1,5 +1,6 @@
 import { AnimatedSection } from './AnimatedSection';
 import { AcademyMap } from './AcademyMap';
+import { cta } from '../content/cta';
 
 export function Location() {
   return (
@@ -9,15 +10,12 @@ export function Location() {
           <span className="section-label">Локация</span>
           <h2>Встречаемся в ивент&#8209;пространстве «Академия»</h2>
           <p className="location__address">Москва, Ленинградский проспект 31</p>
+          <p className="location__note">
+            {cta.freeNote} · вход по записи
+          </p>
         </div>
 
         <AcademyMap />
-
-        <div className="location__cta">
-          <a className="btn btn--primary" href="#register">
-            Участвовать
-          </a>
-        </div>
       </div>
     </AnimatedSection>
   );

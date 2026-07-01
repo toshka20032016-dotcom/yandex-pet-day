@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
 import { AnimatedGrid } from './ui/AnimatedGrid';
 import { AppIcon } from './ui/Icon';
+import { CtaButton } from './ui/CtaButton';
+import { cta } from '../content/cta';
 
 export function Hero() {
   return (
@@ -51,12 +53,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.26 }}
           >
-            <a className="btn btn--primary btn--lg btn--glow" href="#register">
-              Участвовать
-            </a>
-            <a className="btn btn--ghost btn--lg" href="#program">
-              Смотреть программу
-            </a>
+            <CtaButton href={cta.anchors.register} size="lg" glow>
+              {cta.primary}
+            </CtaButton>
+            <CtaButton href={cta.anchors.program} variant="ghost" size="lg">
+              {cta.exploreProgram}
+            </CtaButton>
           </motion.div>
           <motion.p
             className="hero__meta"
